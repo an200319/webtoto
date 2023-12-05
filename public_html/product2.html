@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="./css/default.css">
+        <title>Canvas</title>
+    </head>
+    <body>
+        <main>
+            <div id="#set">
+                <img src="./img/Logo.png" alt="中村優太">
+            </div>
+            <div id="container">
+            <nav>
+                <ul>
+                    <li class=current0 id="contents">
+                        <a href="index.html" >Home</a>
+                    </li>
+                    <li class=current1 id="contents">
+                        <a href="product1.html">Fortune</a>
+                    </li>
+                    <li class=current2 id="contents">
+                        <a href="product2.html">Canvas</a>
+                    </li>
+                    <li class=current3 id="contents">
+                        <a href="product3.html">Audio</a>
+                    </li>
+                    <li class=current4 id="contents">
+                        <a href="product4.html">Video</a>
+                    </li>
+                    <li class=current5 id="contents">
+                        <a href="product5.html">Original</a>
+                    </li>
+                </ul>
+                </nav>
+                <br>
+                <br>
+                <div class="canvas">
+                    <canvas id="canvas"></canvas>
+                        <div class="click">CANVAS</div>
+                    </div>
+    <script type="text/javascript">
+        var canvas = document.querySelector("#canvas"),
+        ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        var config = {
+            particleNumber: 500,
+            maxParticleSize: 20,
+            maxSpeed: 100,
+            colorVariation: 50
+            };
+        var colorPalette = {
+            bg: {r:12,g:9,b:29},
+        matter: [
+            {r:255,g:204,b:0}, 
+            {r:144,g:62,b:132}, 
+            {r:252,g:242,b:219}, 
+            {r:199,g:0,b:11} 
+            ]
+        };
+        var particles = [],
+            centerX = canvas.width / 2,
+            centerY = canvas.height / 2,
+            drawBg,
+            drawBg = function (ctx, color) {
+                ctx.fillStyle = "rgb(" + color.r + "," + color.g + "," + color.b + ")";
+                ctx.fillRect(0,0,canvas.width,canvas.height);
+            };
+            var Particle = function (x, y) {
+                this.x = x || Math.round(Math.random() * canvas.width);
+                this.y = y || Math.round(Math.random() * canvas.height);
+                this.r = Math.ceil(Math.random() * config.maxParticleSize);
+                this.c = colorVariation(colorPalette.matter[Math.floor(Math.random() * colorPalette.matter.length)],true );
+                this.s = Math.pow(Math.ceil(Math.random() * config.maxSpeed), .7);
+                this.d = Math.round(Math.random() * 360);
+            };
+                var colorVariation = function (color, returnString) {
+                var r,g,b,a, variation;
+                    r = Math.round(((Math.random() * config.colorVariation) - (config.colorVariation/2)) + color.r);
+                    g = Math.round(((Math.random() * config.colorVariation) - (config.colorVariation/2)) + color.g);
+                    b = Math.round(((Math.random() * config.colorVariation) - (config.colorVariation/2)) + color.b);
+                    a = Math.random() + .5;
+                    if (returnString) {
+                        return "rgba(" + r + "," + g + "," + b + "," + a + ")";
+                    } else {
+                        return {r,g,b,a};
+                    }
+                };
+                var updateParticleModel = function (p) {
+                    var a = 180 - (p.d + 90); 
+                    p.d > 0 && p.d < 180 ? p.x += p.s * Math.sin(p.d) / Math.sin(p.s) : p.x -= p.s * Math.sin(p.d) / Math.sin(p.s);
+                    p.d > 90 && p.d < 270 ? p.y += p.s * Math.sin(a) / Math.sin(p.s) : p.y -= p.s * Math.sin(a) / Math.sin(p.s);
+                return p;
+                };
+                var drawParticle = function (x, y, r, c) {
+                    ctx.beginPath();
+                    ctx.fillStyle = c;
+                    ctx.arc(x, y, r, 0, 2*Math.PI, false);
+                    ctx.fill();
+                    ctx.closePath();
+                };
+                var cleanUpArray = function () {
+                    particles = particles.filter((p) => {
+                    return (p.x > -100 && p.y > -100);
+                    });
+                };
+                var initParticles = function (numParticles, x, y) {
+                    for (let i = 0; i < numParticles; i++) {
+                    particles.push(new Particle(x, y));
+                    }
+                    particles.forEach((p) => {
+                    drawParticle(p.x, p.y, p.r, p.c);
+                    });
+                };
+                window.requestAnimFrame = (function() {
+                    return window.requestAnimationFrame ||
+                        window.webkitRequestAnimationFrame ||
+                        window.mozRequestAnimationFrame ||
+                        function(callback) {
+                            window.setTimeout(callback, 1000 / 60);
+                        };
+                    })();
+                var frame = function () {
+                    drawBg(ctx, colorPalette.bg);
+                    particles.map((p) => {
+                        return updateParticleModel(p);
+                    });
+                    particles.forEach((p) => {
+                    drawParticle(p.x, p.y, p.r, p.c);
+                    });
+                    window.requestAnimFrame(frame);
+                };
+                    document.body.addEventListener("click", function (event) {
+                        var x = event.clientX,
+                        y = event.clientY;
+                        cleanUpArray();
+                        initParticles(config.particleNumber, x, y);
+                    });
+                frame();
+                initParticles(config.particleNumber);
+                </script>
+                                <section id="sec03">
+                    <div class="canvas">
+                    <br>
+                     <canvas id="mycanvas" width="600" height="600">  </canvas>
+                  <script>
+                    (function() {
+                      'use strict';
+                    
+                      var canvas;
+                      var ctx;
+                      var Ball;
+                      var balls = [];
+                      var Stage;
+                      var stage;
+                    
+                      canvas = document.getElementById('mycanvas');
+                      if (!canvas || !canvas.getContext) return false;
+                      ctx = canvas.getContext('2d');
+                      
+                      canvas = document.getElementById('mycanvas');
+                      if (!canvas || !canvas.getContext) return false;
+                      ctx = canvas.getContext('2d');
+                    
+                      function rand(min, max) {
+                       
+                      return min + Math.floor(Math.random() * (max - min + 1));
+                      }
+                    
+                      function adjustPosition(pos, r, max) {
+                      
+                      if (pos - r < 0) {
+                        return r;
+                      } else if (pos + r > max) {
+                        return max - r;
+                      } else {
+                        return pos;
+                      }
+                      }
+                    
+                      canvas.addEventListener('click', function(e) {
+                      var x, y, r;
+                      var rect;
+                      
+                      rect = e.target.getBoundingClientRect();
+                      x = e.clientX - rect.left;
+                      y = e.clientY - rect.top;
+                      r = rand(0, 100) < 20 ? rand(50, 80) : rand(10, 35);
+                    
+                      x = adjustPosition(x, r, canvas.width);
+                      y = adjustPosition(y, r, canvas.height);
+                      balls.push(new Ball(x, y, r));
+                      });
+                    
+                      Ball = function(x, y, r) {
+                      this.x = x;
+                      this.y = y;
+                      this.r = r;
+                      this.vx = rand(-10, 10);
+                      this.vy = rand(-10, 10);
+                      this.color = 'hsla(' + rand(0, 90) + ', ' + rand(0, 70) + '%, ' + rand(0, 60) + '%, ' + Math.random() + ')';
+                      };
+                    
+                      Ball.prototype.draw = function() {
+                      ctx.beginPath();
+                      ctx.arc(this.x, this.y, this.r, 0, Math.PI*2);
+                      ctx.fillStyle = this.color;
+                      ctx.closePath();
+                      ctx.fill();
+                      };
+                    
+                      Ball.prototype.move = function() {
+                      if (this.x + this.r > canvas.width || this.x - this.r < 0) {
+                        this.vx *= -1;
+                      }
+                      if (this.y + this.r > canvas.height || this.y - this.r < 0) {
+                        this.vy *= -1;
+                      }
+                      this.x += this.vx;
+                      this.y += this.vy;
+                      };
+                    
+                      Stage = function() {
+                      this.update = function() {
+                        var i;
+                        this.clear();
+                        for (i = 0; i < balls.length; i++) {
+                        balls[i].draw();
+                        balls[i].move();
+                        }
+                        setTimeout(function() {
+                        this.update(); 
+                        }.bind(this), 40);
+                      };
+                      this.clear = function() {
+                        ctx.fillStyle = '#F5F5DC';
+                        ctx.fillRect(0, 0, canvas.width, canvas.height);
+                      }
+                      };
+                    
+                      stage = new Stage();
+                      stage.update();
+                    
+                    })();
+                    </script>
+                </section>
+              </div>
+            </div>
+              </div>
+            </div>
+        </div>
+    </body>
+  </html>
