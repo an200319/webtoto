@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="./css/default.css">
+        <title>おみくじ</title>
+    </head>
+    <body>
+        <main>
+            <div id="#set">
+             <img src="img/Logo.png" alt="中村優太">
+            </div>
+            <div id="container">
+            <nav>
+            <ul>
+                <li class=current0 id="contents">
+                    <a href="index.html" >Home</a>
+                </li>
+                <li class=current1 id="contents">
+                    <a href="product1.html">Fortune</a>
+                </li>
+                <li class=current2 id="contents">
+                    <a href="product2.html">Canvas</a>
+                </li>
+                <li class=current3 id="contents">
+                    <a href="product3.html">Audio</a>
+                </li>
+                <li class=current4 id="contents">
+                    <a href="product4.html">Video</a>
+                </li>
+                <li class=current5 id="contents">
+                    <a href="product5.html">Original</a>
+                </li>
+            </ul>
+            </nav>
+            <br>
+            <br>
+            <style>
+                .omikuji-img {
+                    width: 300px; 
+                    height: auto; 
+                }
+            </style>
+          </head>
+          <body>
+            <h3>
+            <button id="playBtn">運勢を占う！</button>
+            </h3>
+            <img id="omikuji" src="img/omikuzi.png" class="omikuji-img">
+            </div>
+            
+            <script>
+
+                 var omikujiImages = [
+                'dai.png',
+                'kiti.png',
+                'sue.png',
+                'tyuu.png',
+                'kyou.png',
+                'daikyou.png',
+                'syou.png',
+                 ];
+            
+                 document.getElementById('playBtn').onclick = function(){
+                     omikuji_play();
+                 }
+            
+                function omikuji_play(){
+                 
+                 var number = Math.floor(Math.random() * omikujiImages.length);
+                 var target = document.getElementById("omikuji");
+                 target.src = "img/" + omikujiImages[number];
+                }
+            
+            </script>
+            <br>
+            <br>   
+    </body>
+</html>
