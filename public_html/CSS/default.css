@@ -1,0 +1,311 @@
+#header{
+    position: relative;
+    height: 100vh;
+} 
+
+#video-area{
+    position: fixed;
+    z-index: -1;
+    top: 0;
+    right:0;
+    left:0;
+    bottom:0;
+    overflow: hidden;
+}
+
+#video {
+    position: absolute;
+    z-index: -1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 177.77777778vh; 
+    height: 56.25vw; 
+    min-height: 100%;
+    min-width: 100%;
+}
+
+h1{
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    color:#fff;
+    text-shadow: 0 0 15px #666;
+}
+#container{
+  background: rgba(255, 255, 255, 0.945);
+  padding:100px 0;
+  text-align: center;
+}
+#set{
+  width: 50%;
+  max-height: 150px;
+  margin: 10px auto;
+}
+body {
+    background-image: url(../img/haikei.png);
+    text-align:center;
+}
+main{
+    background-image: url(../img/shiro2.jpg);
+    opacity: 0.9;
+}
+#name{
+    width: 50%;
+    max-height: 150px;
+    margin: 10px auto;
+}
+nav{
+    background-image: url(../img/shiro.jpg);
+}
+#name > img{
+    display: block;
+    width:40%;
+    margin: 0px auto;
+}
+nav ul{
+    display: table;
+    margin: 0 auto;
+    padding: 0 ;
+    width: 80%;
+    text-align: center;
+}
+nav li{
+    display: table-cell;
+    min-width: 50px;
+}
+nav a{
+    display: block;
+    width: 100%;
+    text-decoration: none;
+    color: #000;
+    padding-bottom: 5px;
+}
+nav li.current0{
+    border-bottom: 8px solid #a7f5ff;
+}
+nav li.current1{
+    border-bottom: 8px solid #00a2ff;
+}
+nav li.current2{
+    border-bottom: 8px solid #1500d1;
+}
+nav li.current3{
+    border-bottom: 8px solid #b400eb;
+}
+nav li.current4{
+    border-bottom: 8px solid #ff7f2a;
+}
+nav li.current5{
+    border-bottom: 8px solid #be008f;
+}
+nav li:hover{
+    color: #f8990b;
+    border-bottom: 3px solid #fffc4a;
+}
+a:hover{
+    color: rgb(255, 0, 13);
+}
+h1{
+    text-align: center;
+}
+h2{
+    text-align: center;
+}
+.kanso {
+    width: fit-content;
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.849);
+    padding: 10px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    border: 5px double black;
+  }
+  
+  p{
+    text-align: center;
+  }
+  
+  ul{
+    text-align: center;
+  }
+  tbody{
+    text-align: center;
+  }
+#contents {
+  font-family: 'Arial', cursive;
+}
+
+body{
+    text-align: center;
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+    background-image:"img/haikei.png";
+}
+#result{
+    margin: 30px auto;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    line-height: 180px;
+    font-size: 48px;
+    font-weight: bold;
+    color: #fff;
+    background: #f44336;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+#btn{
+    margin: 0px auto;
+    width: 200px;
+    padding: 5px;
+    border-radius: 5px;
+    background: #00aaff;
+    box-shadow: 0 4px 0 #0088cc;
+    color: #fff;
+    cursor: pointer;
+}
+#btn:hover{
+    opacity: 0.8;
+}
+#btn.pushed{
+    margin-top: 32px;
+    box-shadow: 0 2px 0 #0088cc;
+}
+.spbtn{
+    display: inline-block;
+    width: 60px;
+    padding: 7px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    color: #fff;
+    box-shadow: 0 4px 0 #0088cc;
+    background: #00aaff;
+    cursor: pointer;
+}
+.spbtn.inactive{
+    opacity: 0.3;
+}
+.btn-circle-stitch {
+  display: inline-block;
+  text-decoration: none;
+  background: #87befd;
+  color: #FFF;
+  width: 120px;
+  height: 120px;
+  line-height: 120px;
+  border-radius: 50%;
+  text-align: center;
+  overflow: hidden;
+  box-shadow: 0px 0px 0px 5px #87befd;
+  border: dashed 1px #FFF;
+  transition: .4s;
+}
+
+.box15 {
+  padding: 0.2em 0.5em;
+  margin: 2em 0;
+  color: #565656;
+  background: #ffeaea;
+  box-shadow: 0px 0px 0px 10px #ffeaea;
+  border: dashed 2px #ffc3c3;
+  border-radius: 8px;
+}
+.box15 p {
+  margin: 0; 
+  padding: 0;
+}
+
+.yello{
+  background:#ffd700
+}
+#playBtn{
+    background:#f72828;
+    color:#fff;
+    border:none;
+    position:relative;
+    height:60px;
+    font-size: 30px;
+    font-family: SimSun;
+    padding:0 2em;
+    cursor:pointer;
+    transition:800ms ease all;
+    outline:none;
+    width: 300px;
+  }
+  #playBtn:hover{
+    background:#fff;
+    color:#f72828;
+  }
+  #playBtn:before,button:after{
+    content:'';
+    position:absolute;
+    top:0;
+    right:0;
+    height:2px;
+    width:0;
+    background: #f72828;
+    transition:400ms ease all;
+  }
+  #playBtn:after{
+    right:inherit;
+    top:inherit;
+    left:0;
+    bottom:0;
+  }
+  #playBtn:hover:before,button:hover:after{
+    width:100%;
+    transition:800ms ease all;
+  }
+canvas {
+  border: 1px soild black;
+  width: 100%;
+}
+.canvas{
+  position: relative;
+}
+.click {
+  display: inline-block;
+  padding: .3em;
+  position: absolute;
+  top: 50%;
+  font-size: 2em;
+  left: 50%;
+  user-select: none;
+  transform: translate(-50%,-50%);
+  color: rgba(255,255,255,.68);
+  border: .075em solid rgba(255,255,255,.1);
+}
+.loopSlide {
+  display: flex;
+  width: 100vw;
+  height: 200px;
+  overflow: hidden;
+}
+.loopSlide img {
+  width: auto;
+  height: 100%;
+}
+.loopSlide img:first-child {
+  animation: slide1 60s -30s linear infinite;
+}
+.loopSlide img:last-child {
+  animation: slide2 60s linear infinite;
+}
+
+@keyframes slide1 {
+  0% {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+@keyframes slide2 {
+  0% {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-200%);
+  }
+}
