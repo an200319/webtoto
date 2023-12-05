@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="./css/default.css">
+        <title>オリジナル</title>
+    </head>
+    <body>
+        <main>
+            <div id="#set">
+             <img src="img/Logo.png" alt="中村優太">
+            </div>
+            <div id="container">
+            <nav>
+            <ul>
+                <li class=current0 id="contents">
+                    <a href="index.html" >Home</a>
+                </li>
+                <li class=current1 id="contents">
+                    <a href="product1.html">Fortune</a>
+                </li>
+                <li class=current2 id="contents">
+                    <a href="product2.html">Canvas</a>
+                </li>
+                <li class=current3 id="contents">
+                    <a href="product3.html">Audio</a>
+                </li>
+                <li class=current4 id="contents">
+                    <a href="product4.html">Video</a>
+                </li>
+                <li class=current5 id="contents">
+                    <a href="product5.html">Original</a>
+                </li>
+            </ul>
+            </nav>
+            <br>
+            <br>
+            <h3>
+                <button id="playBtn">calculation</button>
+                </h3>
+                <style>
+                    button
+                    {
+                        width: 50px;
+                        height: 50px;
+                    }
+                </style>
+                
+                    <input style="font-size: 28px; text-align: right;" /><br>
+                    <script>
+                    function update( _v ) 
+                    {
+                        document.querySelector( 'input' ).value = _v
+                    }
+                
+                    function append( _v ) 
+                    {
+                        document.querySelector( 'input' ).value += _v
+                    }
+                
+                    function calc() 
+                    {
+                        const v = document.querySelector( 'input' ).value
+                        try {
+                            const f = new Function( 'return ' + v )
+                            update( f().toString() )
+                        } catch( _error ) {
+                            update( _error ) 
+                        }
+                    }
+                    </script>
+                    <button onclick="append( '1' )" >1</button>
+                    <button onclick="append( '2' )" >2</button>
+                    <button onclick="append( '3' )" >3</button>
+                    <button onclick="append( '4' )" >4</button>
+                    <button onclick="append( '5' )" >5</button><br />
+                    <button onclick="append( '6' )" >6</button>
+                    <button onclick="append( '7' )" >7</button>
+                    <button onclick="append( '8' )" >8</button>
+                    <button onclick="append( '9' )" >9</button>
+                    <button onclick="append( '0' )" >0</button><br />
+                    <button onclick="append( '.' )" >.</button>
+                    <button onclick="append( '+' )" >+</button>
+                    <button onclick="append( '-' )" >-</button>
+                    <button onclick="append( '*' )" >*</button>
+                    <button onclick="append( '/' )" >/</button><br />
+                    <button onclick="append( '**' )" >^</button>
+                    <button onclick="append( '**0.5' )" >√</button>
+                
+                    <button onclick="calc()" style="width:105px;">=</button>
+                
+                    <button onclick="update( '' ) " >CLR</button>
+                
+                <br>
+                <br>
+                <br>
+                <div class="loopSlide">
+                    <img src="img/yoko.png">
+                    <img src="img/yoko.png">
+                </div>
+    <br>
+    <br>
+    </body>
+</html>
